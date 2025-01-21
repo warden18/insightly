@@ -13,6 +13,17 @@ import { TABS } from './constants/tabs';
 
 import './App.css';
 
+const tabs = {
+  [TABS.dailyInsightsSummary]: <DailyInsightsSummary />,
+  [TABS.moodTracker]: <MoodTracker />,
+  [TABS.moodAnalysis]: <MoodAnalysis />,
+  [TABS.moodTrends]: <MoodTrends />,
+};
+
+const getCurrentTab = (tab: string) => {
+  return tabs[tab] || <DailyInsightsSummary />;
+}
+
 function App() {
   const [userMoods, setUserMoods] = useState(USER_MOOD_DATA);
   const [tab, setTab] = useState(TABS.dailyInsightsSummary);
@@ -21,6 +32,8 @@ function App() {
     userMoods,  
     setUserMoods,
   };
+
+  const currentTab = getCurrentTab(tab);
 
   return (
     <>
@@ -31,10 +44,7 @@ function App() {
 
         <br />
 
-        {tab === TABS.dailyInsightsSummary && <DailyInsightsSummary />}
-        {tab === TABS.moodTracker && <MoodTracker />}
-        {tab === TABS.moodAnalysis && <MoodAnalysis />}
-        {tab === TABS.moodTrends && <MoodTrends />}
+        {currentTab}
       </UserContext.Provider>
     </>
   )

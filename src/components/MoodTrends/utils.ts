@@ -1,26 +1,6 @@
 import { Mood } from "../../types/Mood";
 
-export enum ChartKeysEnum {
-  daily = "daily",
-  weekly = "weekly",
-  monthly = "monthly",
-};
-
-export type ChartKeys = "daily" | "weekly" | "monthly";
-
-export type ChartData = {
-  [key in ChartKeys]: {
-    labels: string[];
-    datasets: [
-      {
-        label: string;
-        data: number[];
-        borderColor: string;
-        backgroundColor: string;
-      }
-    ]
-  }
-}
+import { type ChartData } from "../../types/ChartData";
 
 export const chartOptions = {
   responsive: true,
@@ -30,7 +10,7 @@ export const chartOptions = {
     },
     title: {
       display: true,
-      text: 'Mood scores for the past 7 days',
+      text: '',
     },
   },
 };

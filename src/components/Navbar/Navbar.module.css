@@ -10,3 +10,8 @@
     font-size: 1rem;
   }
 }
+
+.tab:not(:last-child) {
+  padding-right: 12px;
+  border-right: 1px solid white;
+}

@@ -10,8 +10,13 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+
+import { generateChartData, chartOptions } from "./utils";
+import styles from './MoodTrends.module.css';
+
 import { useUser } from "../../contexts/UserContext";
-import { generateChartData, chartOptions, type ChartData, ChartKeysEnum } from "./utils";
+
+import { ChartKeysEnum } from "../../constants/chartKeys";
 
 ChartJS.register(
   CategoryScale,
@@ -34,8 +39,8 @@ function MoodTrends() {
   };  
 
   return (
-    <div className="flex flex-column items-center">
-      <div className="flex flex-row gap-2" style={{ marginBottom: "10px", padding: "10px 20px" }}>
+    <div className={styles.moodTrendsWrapper}>
+      <div className={styles.buttonsWrapper}>
         <button onClick={() => toggleView(ChartKeysEnum.daily)}>
           Daily
         </button>
@@ -47,8 +52,8 @@ function MoodTrends() {
         </button>
       </div>
 
-      <div className="flex items-center justify-center" style={{height: '40vh', width: '80vw' }}>
-        <Line options={chartOptions} data={lineData[currentView as keyof ChartData]} />
+      <div className={styles.chartWrapper}>
+        <Line options={chartOptions} data={lineData[currentView]} />
       </div>
     </div>
   )
