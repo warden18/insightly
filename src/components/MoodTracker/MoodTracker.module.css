@@ -1,0 +1,16 @@
+.label {
+  font-size: 24px;
+}
+
+.moodForm {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+#moodSelect > option:first-child {
+  display: none;
+}

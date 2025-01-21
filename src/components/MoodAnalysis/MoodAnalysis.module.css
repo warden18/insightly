@@ -1,0 +1,11 @@
+.message {
+  color: lightslategray;
+}
+
+.message--mood-increase {
+  color: lightgreen;
+}
+
+.message--mood-decrease {
+  color: lightcoral;
+}
